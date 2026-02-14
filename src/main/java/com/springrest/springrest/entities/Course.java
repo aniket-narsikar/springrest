@@ -2,8 +2,10 @@ package com.springrest.springrest.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="CourseList")
 public class Course {
     @Id
     private Long id;

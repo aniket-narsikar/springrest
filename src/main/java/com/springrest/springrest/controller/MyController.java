@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class MyController {
 
@@ -27,6 +28,11 @@ public class MyController {
     {
     return this.courseService.getCourses();
     }
+    @GetMapping("/health")
+    public String health() {
+        return "Application is running";
+    }
+
 
     @GetMapping("/courses/{courseId}")
     public Course  getCourse(@PathVariable String courseId)
@@ -48,7 +54,6 @@ public class MyController {
         try {
             this.courseService.deleteCourse(courseId);
             return new ResponseEntity<>(HttpStatus.OK);
-
         }
         catch ( Exception e)
         {
